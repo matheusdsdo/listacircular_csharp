@@ -19,13 +19,11 @@ namespace Introducao
                 if (this.inicio == null)
                 {
                     this.inicio = new Elemento(j);
-                    contagem++;
                     this.inicio.SetProximo(this.inicio);
                 }
                 else
                 {
                     Elemento elemento = this.inicio;
-                    contagem++;
                     while (!elemento.GetProximo().GetJogador().Equals(this.inicio.GetJogador()))
                     {
                         elemento = elemento.GetProximo();
@@ -35,7 +33,6 @@ namespace Introducao
                 }
             } else
             {
-                Console.WriteLine("");
             }
         }
 
@@ -56,16 +53,13 @@ namespace Introducao
 
         public void remover(string nome)
         {
-            Console.WriteLine("Nome enviado: "+nome);
             Elemento elemento = this.inicio;
-            Console.WriteLine("Primeiro chamado: "+elemento.GetJogador().GetNome());
             if (elemento.GetJogador().GetNome().Equals(nome))
             {
                 this.inicio = elemento.GetProximo();
                 while (!elemento.GetProximo().GetJogador().GetNome().Equals(nome))
                 {
                     elemento = elemento.GetProximo();
-                    Console.WriteLine("Chamado: "+elemento.GetJogador().GetNome());
                 }
                 elemento.SetProximo(this.inicio);
             } else
